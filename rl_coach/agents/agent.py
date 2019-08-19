@@ -15,6 +15,7 @@
 #
 
 import copy
+from pprint import pprint
 import random
 from collections import OrderedDict
 from typing import Dict, List, Union, Tuple
@@ -735,6 +736,10 @@ class Agent(AgentInterface):
 
                 # if the batch returned empty then there are not enough samples in the replay buffer -> skip
                 # training step
+
+                for b in batch:
+                    print('Batch', b)
+                    
                 if len(batch) > 0:
                     # train
                     batch = Batch(batch)

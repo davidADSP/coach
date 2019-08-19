@@ -49,6 +49,12 @@ from rl_coach.data_stores.data_store_impl import get_data_store, construct_data_
 from rl_coach.training_worker import training_worker
 from rl_coach.rollout_worker import rollout_worker
 
+import os
+import tensorflow as tf
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+tf.logging.set_verbosity(tf.logging.ERROR)
+
+
 
 if len(set(failed_imports)) > 0:
     screen.warning("Warning: failed to import the following packages - {}".format(', '.join(set(failed_imports))))
